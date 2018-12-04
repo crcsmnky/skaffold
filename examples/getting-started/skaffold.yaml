@@ -2,8 +2,13 @@ apiVersion: skaffold/v1beta1
 kind: Config
 build:
   artifacts:
-  - image: gcr.io/k8s-skaffold/skaffold-example
+  - image: gcr.io/kubecon-na-2018/skaffold-example
 deploy:
   kubectl:
     manifests:
       - k8s-*
+profiles:
+  - name: gcb
+    build:
+      googleCloudBuild:
+        projectId: kubecon-na-2018
